@@ -11,7 +11,7 @@ function Dot2LongIP ($IPaddr)
     }
 }
 	
-$con=mysqli_connect("LOCALHOST:3306","Admin","Admin157891","ip2location");
+$con=mysqli_connect("LOCALHOST:3306","MYSQLUSERNAME","MYSQLPASSWORD","ip2location");
 
 if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
