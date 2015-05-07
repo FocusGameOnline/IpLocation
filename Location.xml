@@ -1,0 +1,13 @@
+<OnEnter type="script">
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="WebLoc"><operator type="readweb" nvalue="http://www.focusgameonline.com:1080/test.php?IPaddr=%IP%" lvalue="l" rvalue="1"/></out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="Country"> <operator type="strrep" nvalue="$WebLoc$" lvalue="COUNTRY CODE:" rvalue="#c9#,#c1#"/> </out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="State"><operator type="readweb" nvalue="http://www.focusgameonline.com:1080/test.php?IPaddr=%IP%" lvalue="l" rvalue="3"/></out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="Region"> <operator type="strrep" nvalue="$State$" lvalue="STATE OR REGION:" rvalue="#c9#,#c1#"/> </out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="Cit"><operator type="readweb" nvalue="http://www.focusgameonline.com:1080/test.php?IPaddr=%IP%" lvalue="l" rvalue="4"/></out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="City"> <operator type="strrep" nvalue="$Cit$" lvalue="CITY:" rvalue=" "/> </out>
+<out condition="==" lvalue="$CitySwitch$" rvalue="0" type="push" extdata="City">#c8# PROTECTED</out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%">/opmsg #c9#[#c8#Location Dictionary#c9#] #c2#%NAME% #c10#Is From:#c1#$City$#c9#, #c1#$Region$#c9#, #c1#$Country$</out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="Country1"> <operator type="strrem" lvalue="$WebLoc$" rvalue="COUNTRY CODE:"/> </out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="Region1"> <operator type="strrem" lvalue="$State$" rvalue="STATE OR REGION:"/> </out>
+<out condition="!?" lvalue="$WebLoc2$" rvalue="%IP%" type="push" extdata="City1"> <operator type="strrem" lvalue="$Cit$" rvalue="CITY:"/> </out>
+</OnEnter>
